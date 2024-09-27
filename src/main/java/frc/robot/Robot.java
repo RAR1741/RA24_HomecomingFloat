@@ -16,7 +16,7 @@ public class Robot extends TimedRobot {
   private final Compressor m_compressor = new Compressor(PneumaticsModuleType.CTREPCM);
 
   private int counter = 0;
-  private double resetSeconds = 1;
+  private double resetSeconds = 4;
   private int resetCount = (int)(50.0 * resetSeconds);  // 50 * 20ms = 1s
   private boolean mode = false;
 
