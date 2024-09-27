@@ -16,7 +16,8 @@ public class Robot extends TimedRobot {
   private final Compressor m_compressor = new Compressor(PneumaticsModuleType.CTREPCM);
 
   private int counter = 0;
-  private int resetCount = 50;  // 50 * 20ms = 1s
+  private double resetSeconds = 1;
+  private int resetCount = (int)(50.0 * resetSeconds);  // 50 * 20ms = 1s
   private boolean mode = false;
 
   @Override
@@ -24,7 +25,11 @@ public class Robot extends TimedRobot {
     ShuffleboardTab tab = Shuffleboard.getTab("Pneumatics");
     tab.add("Double Solenoid 1", m_doubleSolenoid1);
     tab.add("Double Solenoid 2", m_doubleSolenoid2);
-    tab.add("Compressor", m_compressor);
+
+
+    // This calls a bunch of other methods, that aren't
+    // available on the PCM.  :(
+    // tab.add("Compressor", m_compressor);
   }
 
   @Override
